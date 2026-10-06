@@ -1,0 +1,101 @@
+<UserControl x:Class="HarmanPCTools.Pages.CleanupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Margin="30" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="Cleanup Center" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Remove safe temporary data and quickly open Windows storage tools."
+                       Style="{StaticResource PageSubtitle}"/>
+
+            <Grid Margin="0,22,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/><ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Background="{DynamicResource PanelBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="20"
+                        Margin="0,0,8,0">
+                    <StackPanel>
+                        <TextBlock Text="USER TEMPORARY FILES"
+                                   Foreground="{DynamicResource MutedBrush}"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock x:Name="TempSizeText"
+                                   Text="Calculating..."
+                                   Foreground="{DynamicResource TextBrush}"
+                                   FontSize="30"
+                                   FontWeight="Bold"
+                                   Margin="0,8,0,3"/>
+                        <TextBlock x:Name="TempPathText"
+                                   Foreground="{DynamicResource MutedBrush}"
+                                   FontSize="11"
+                                   TextWrapping="Wrap"
+                                   Margin="0,0,0,16"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="⟳  Scan"
+                                    Style="{StaticResource SecondaryButton}"
+                                    Click="Scan_Click"
+                                    Margin="0,0,8,0"/>
+                            <Button Content="♻  Clean"
+                                    Style="{StaticResource PrimaryButton}"
+                                    Click="Clean_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1"
+                        Background="{DynamicResource PanelBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="20"
+                        Margin="8,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="WINDOWS STORAGE"
+                                   Foreground="{DynamicResource MutedBrush}"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock Text="Use Windows' own storage tools for system-level cleanup."
+                                   Foreground="{DynamicResource TextBrush}"
+                                   FontSize="14"
+                                   TextWrapping="Wrap"
+                                   Margin="0,8,0,16"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Storage Settings"
+                                    Style="{StaticResource SecondaryButton}"
+                                    Click="Storage_Click"
+                                    Margin="0,0,8,0"/>
+                            <Button Content="Disk Cleanup"
+                                    Style="{StaticResource SecondaryButton}"
+                                    Click="DiskCleanup_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <TextBlock Text="SAFETY" Style="{StaticResource SectionTitle}"/>
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="18"
+                    Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Safe by design"
+                               Foreground="{DynamicResource TextBrush}"
+                               FontSize="15"
+                               FontWeight="SemiBold"/>
+                    <TextBlock Text="This page only deletes items from the current user's temporary folder. Files in use or protected are skipped. System-level cleanup remains under Windows' own tools."
+                               Foreground="{DynamicResource MutedBrush}"
+                               TextWrapping="Wrap"
+                               Margin="0,6,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

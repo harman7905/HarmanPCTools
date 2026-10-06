@@ -1,0 +1,43 @@
+<UserControl x:Class="HarmanPCTools.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer Margin="30" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="Settings" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Application behavior and public-release configuration."
+                       Style="{StaticResource PageSubtitle}"/>
+
+            <TextBlock Text="STARTUP" Style="{StaticResource SectionTitle}"/>
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                    CornerRadius="12" Padding="18">
+                <StackPanel>
+                    <CheckBox x:Name="StartWithWindowsCheck"
+                              Content="Launch Harman PC Tools with Windows"
+                              Foreground="{DynamicResource TextBrush}"
+                              FontSize="13"
+                              Click="StartWithWindows_Click"/>
+                    <TextBlock Text="This only affects your Windows user startup entry."
+                               Foreground="{DynamicResource MutedBrush}"
+                               FontSize="11" Margin="0,6,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="GITHUB" Style="{StaticResource SectionTitle}"/>
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                    CornerRadius="12" Padding="18">
+                <StackPanel>
+                    <TextBlock Text="Public repository URL" Style="{StaticResource InfoLabel}"/>
+                    <TextBox x:Name="RepositoryTextBox" Height="34" Padding="8" Margin="0,6,0,12"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Save URL" Style="{StaticResource PrimaryButton}" Click="SaveRepository_Click" Margin="0,0,8,0"/>
+                        <Button Content="Open Repository" Style="{StaticResource SecondaryButton}" Click="OpenRepository_Click"/>
+                    </StackPanel>
+                    <TextBlock Text="The app never silently downloads or executes updates. GitHub Releases remain the distribution mechanism."
+                               Foreground="{DynamicResource MutedBrush}" TextWrapping="Wrap" FontSize="11" Margin="0,10,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

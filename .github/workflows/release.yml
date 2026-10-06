@@ -1,0 +1,65 @@
+
+name: Harman PC Tools Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Read version
+        id: version
+        shell: powershell
+        run: |
+          [xml]$xml = Get-Content "HarmanPCTools/HarmanPCTools.csproj"
+          $version = $xml.Project.PropertyGroup.Version
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Publish
+        run: >
+          dotnet publish
+          HarmanPCTools/HarmanPCTools.csproj
+          --configuration Release
+          --runtime win-x64
+          --self-contained true
+          -p:PublishSingleFile=true
+          -p:IncludeNativeLibrariesForSelfExtract=true
+          -p:DebugType=None
+          --output dist/publish
+
+      - name: Install Inno Setup
+        shell: powershell
+        run: choco install innosetup --yes --no-progress
+
+      - name: Build installer
+        shell: powershell
+        run: |
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" `
+            "/DMyAppVersion=${{ steps.version.outputs.version }}" `
+            "installer\HarmanPCTools.iss"
+
+      - name: Create GitHub Release
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = "${{ steps.version.outputs.version }}"
+          gh release create $env:GITHUB_REF_NAME `
+            "dist/publish/HarmanPCTools.exe" `
+            "dist/installer/HarmanPCTools-Setup-$version.exe" `
+            --generate-notes `
+            --title "Harman PC Tools $env:GITHUB_REF_NAME"

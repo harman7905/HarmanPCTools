@@ -1,0 +1,34 @@
+<UserControl x:Class="HarmanPCTools.Pages.FunPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="30">
+        <StackPanel>
+            <TextBlock Text="Fun Zone" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="A little personality for your PC toolkit."
+                       Style="{StaticResource PageSubtitle}"/>
+
+            <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1" CornerRadius="14" Padding="24" Margin="0,28,0,0">
+                <StackPanel>
+                    <TextBlock Text="PC MOOD" Foreground="{StaticResource MutedBrush}" FontSize="11" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="MoodText" Text="Ready when you are."
+                               Foreground="{StaticResource TextBrush}" FontSize="28" FontWeight="Bold"
+                               TextWrapping="Wrap" Margin="0,10,0,14"/>
+                    <Button Content="🎲  Surprise Me" Style="{StaticResource PrimaryButton}" Width="150" HorizontalAlignment="Left"
+                            Click="Surprise_Click"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1" CornerRadius="14" Padding="20" Margin="0,16,0,0">
+                <StackPanel>
+                    <TextBlock Text="HARMAN EASTER EGG"
+                               Foreground="{StaticResource AccentBrush}" FontSize="11" FontWeight="Bold"/>
+                    <TextBlock Text="Type the Konami-style sequence on your keyboard later—we'll turn this into a real hidden feature in the next build."
+                               Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

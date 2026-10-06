@@ -1,0 +1,59 @@
+<UserControl x:Class="HarmanPCTools.Pages.CustomizePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Margin="30" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="Customize" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Choose a polished visual style for Harman PC Tools."
+                       Style="{StaticResource PageSubtitle}"/>
+
+            <TextBlock Text="THEMES" Style="{StaticResource SectionTitle}"/>
+
+            <WrapPanel x:Name="ThemePanel"/>
+
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="18"
+                    Margin="0,8,0,20">
+                <StackPanel>
+                    <TextBlock Text="CURRENT THEME"
+                               Foreground="{DynamicResource MutedBrush}"
+                               FontSize="11"
+                               FontWeight="SemiBold"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <Border x:Name="ThemeSwatch"
+                                Width="28"
+                                Height="28"
+                                CornerRadius="6"
+                                Margin="0,0,10,0"/>
+                        <StackPanel>
+                            <TextBlock x:Name="ThemeNameText"
+                                       Foreground="{DynamicResource TextBrush}"
+                                       FontSize="18"
+                                       FontWeight="Bold"/>
+                            <TextBlock Text="Applied immediately and saved automatically."
+                                       Foreground="{DynamicResource MutedBrush}"
+                                       FontSize="11"
+                                       Margin="0,2,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="DESIGN PHILOSOPHY" Style="{StaticResource SectionTitle}"/>
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="18"
+                    Margin="0,0,0,20">
+                <TextBlock Text="Themes are intentionally dark, understated and gaming-friendly. Hover states are kept subtle so the interface does not glow or flash while you move the mouse around."
+                           Foreground="{DynamicResource MutedBrush}"
+                           TextWrapping="Wrap"/>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

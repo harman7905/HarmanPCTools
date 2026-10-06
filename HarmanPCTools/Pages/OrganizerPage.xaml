@@ -1,0 +1,31 @@
+<UserControl x:Class="HarmanPCTools.Pages.OrganizerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Margin="30" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="File Organizer" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Quickly sort files in Downloads into practical folders."
+                       Style="{StaticResource PageSubtitle}"/>
+
+            <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1" CornerRadius="12" Padding="18" Margin="0,22,0,0">
+                <StackPanel>
+                    <TextBlock Text="DOWNLOADS" Foreground="{StaticResource MutedBrush}" FontSize="11" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="PathText" Foreground="{StaticResource TextBrush}" TextWrapping="Wrap" Margin="0,6,0,16"/>
+                    <TextBlock x:Name="PreviewText" Foreground="{StaticResource TextBrush}" FontSize="13" TextWrapping="Wrap"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,16,0,0">
+                        <Button Content="⟳  Preview" Style="{StaticResource SecondaryButton}" Click="Preview_Click" Margin="0,0,8,0"/>
+                        <Button Content="📁  Organize Downloads" Style="{StaticResource PrimaryButton}" Click="Organize_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1" CornerRadius="12" Padding="18" Margin="0,16,0,20">
+                <TextBlock Text="Categories: Images • Videos • Audio • Documents • Archives • Programs • Other"
+                           Foreground="{StaticResource MutedBrush}"/>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

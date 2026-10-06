@@ -1,0 +1,17 @@
+<UserControl x:Class="HarmanPCTools.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="30">
+        <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                BorderThickness="1" CornerRadius="16" Padding="26" VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Text="HARMAN PC TOOLS" Foreground="{StaticResource AccentBrush}" FontSize="24" FontWeight="Bold"/>
+                <TextBlock Text="Personal Windows control center" Foreground="{StaticResource TextBrush}" FontSize="15" Margin="0,4,0,20"/>
+                <TextBlock Text="Version 2.0.2" Foreground="{StaticResource MutedBrush}" FontSize="12"/>
+                <TextBlock Text="Built as a modular WPF application so new tools can be added without turning the project into one giant file."
+                           Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,8,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,162 @@
+<UserControl x:Class="HarmanPCTools.Pages.GamingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Margin="30" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <Grid>
+                <StackPanel>
+                    <TextBlock Text="Gaming Center" Style="{StaticResource PageTitle}"/>
+                    <TextBlock Text="Launch games, streaming tools and Windows gaming controls from one place."
+                               Style="{StaticResource PageSubtitle}"/>
+                </StackPanel>
+                <Border HorizontalAlignment="Right"
+                        Background="{DynamicResource AccentSoftBrush}"
+                        CornerRadius="14"
+                        Padding="12,7">
+                    <TextBlock x:Name="ReadyText"
+                               Text="GAME READY"
+                               Foreground="{DynamicResource TextBrush}"
+                               FontSize="11"
+                               FontWeight="SemiBold"/>
+                </Border>
+            </Grid>
+
+            <TextBlock Text="GAMING SESSION" Style="{StaticResource SectionTitle}"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Background="{DynamicResource PanelBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="18"
+                        Margin="0,0,8,0">
+                    <StackPanel>
+                        <TextBlock Text="SESSION TIMER"
+                                   Foreground="{DynamicResource MutedBrush}"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SessionTimerText"
+                                   Text="00:00:00"
+                                   Foreground="{DynamicResource TextBrush}"
+                                   FontSize="34"
+                                   FontWeight="Bold"
+                                   Margin="0,8,0,12"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="▶  Start Session"
+                                    Style="{StaticResource PrimaryButton}"
+                                    Click="StartSession_Click"
+                                    Margin="0,0,8,0"/>
+                            <Button Content="■  Stop"
+                                    Style="{StaticResource SecondaryButton}"
+                                    Click="StopSession_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1"
+                        Background="{DynamicResource PanelBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="18"
+                        Margin="8,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="GAMING WORKSPACE"
+                                   Foreground="{DynamicResource MutedBrush}"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"/>
+                        <CheckBox x:Name="SteamCheck"
+                                  Content="Launch Steam"
+                                  IsChecked="True"
+                                  Foreground="{DynamicResource TextBrush}"
+                                  Margin="0,12,0,7"/>
+                        <CheckBox x:Name="ObsCheck"
+                                  Content="Launch OBS Studio"
+                                  Foreground="{DynamicResource TextBrush}"
+                                  Margin="0,0,0,12"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="🚀  Launch Workspace"
+                                    Style="{StaticResource SecondaryButton}"
+                                    Click="LaunchWorkspace_Click"
+                                    Margin="0,0,8,0"/>
+                            <Button Content="⚙  Configure OBS"
+                                    Style="{StaticResource SecondaryButton}"
+                                    Click="ConfigureObs_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <TextBlock Text="MY GAMES" Style="{StaticResource SectionTitle}"/>
+
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="16">
+                <StackPanel>
+                    <TextBlock Text="Pinned games"
+                               Foreground="{DynamicResource TextBrush}"
+                               FontSize="14"
+                               FontWeight="SemiBold"/>
+                    <TextBlock Text="Add a game's .exe once and keep it here for quick launching."
+                               Foreground="{DynamicResource MutedBrush}"
+                               FontSize="12"
+                               Margin="0,4,0,12"/>
+                    <StackPanel x:Name="GamesPanel"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                        <Button Content="＋  Add Game"
+                                Style="{StaticResource PrimaryButton}"
+                                Click="AddGame_Click"
+                                Margin="0,0,8,0"/>
+                        <Button Content="⟳  Refresh"
+                                Style="{StaticResource SecondaryButton}"
+                                Click="Refresh_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="STREAMING &amp; LAUNCHERS" Style="{StaticResource SectionTitle}"/>
+            <UniformGrid Columns="3">
+                <Button Content="🎮  Steam" Style="{StaticResource CardButton}" Click="Steam_Click"/>
+                <Button Content="🟣  Epic Games" Style="{StaticResource CardButton}" Click="Epic_Click"/>
+                <Button Content="📺  OBS Studio" Style="{StaticResource CardButton}" Click="Obs_Click"/>
+            </UniformGrid>
+
+            <TextBlock Text="WINDOWS GAMING CONTROLS" Style="{StaticResource SectionTitle}"/>
+            <UniformGrid Columns="3">
+                <Button Content="⚡  Game Mode" Style="{StaticResource CardButton}" Click="GameMode_Click"/>
+                <Button Content="🖥  Display" Style="{StaticResource CardButton}" Click="Display_Click"/>
+                <Button Content="🎯  Graphics Settings" Style="{StaticResource CardButton}" Click="Graphics_Click"/>
+                <Button Content="🌐  Network" Style="{StaticResource CardButton}" Click="Network_Click"/>
+                <Button Content="📊  Task Manager" Style="{StaticResource CardButton}" Click="TaskManager_Click"/>
+                <Button Content="🟩  NVIDIA Control Panel" Style="{StaticResource CardButton}" Click="Nvidia_Click"/>
+            </UniformGrid>
+
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="18"
+                    Margin="0,8,0,20">
+                <StackPanel>
+                    <TextBlock Text="SAFE GAMING PHILOSOPHY"
+                               Foreground="{DynamicResource TextBrush}"
+                               FontSize="15"
+                               FontWeight="SemiBold"/>
+                    <TextBlock Text="Harman PC Tools does not kill processes or make aggressive Windows changes automatically. The Gaming Center focuses on launch shortcuts, session tracking and safe Windows settings."
+                               Foreground="{DynamicResource MutedBrush}"
+                               TextWrapping="Wrap"
+                               Margin="0,6,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

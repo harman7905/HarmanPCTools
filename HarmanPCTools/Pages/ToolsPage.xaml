@@ -1,0 +1,72 @@
+<UserControl x:Class="HarmanPCTools.Pages.ToolsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Margin="30" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="PC Tools" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Useful Windows utilities and quick diagnostics in one place."
+                       Style="{StaticResource PageSubtitle}"/>
+
+            <TextBlock Text="SYSTEM UTILITIES" Style="{StaticResource SectionTitle}"/>
+            <UniformGrid Columns="3">
+                <Button Content="📊  Task Manager" Style="{StaticResource CardButton}" Click="TaskManager_Click"/>
+                <Button Content="🧩  Device Manager" Style="{StaticResource CardButton}" Click="Device_Click"/>
+                <Button Content="📝  Event Viewer" Style="{StaticResource CardButton}" Click="Event_Click"/>
+                <Button Content="⚙  Services" Style="{StaticResource CardButton}" Click="Services_Click"/>
+                <Button Content="💾  Disk Management" Style="{StaticResource CardButton}" Click="Disk_Click"/>
+                <Button Content="🛠  Control Panel" Style="{StaticResource CardButton}" Click="Control_Click"/>
+            </UniformGrid>
+
+            <TextBlock Text="COMMAND &amp; SETTINGS" Style="{StaticResource SectionTitle}"/>
+            <UniformGrid Columns="3">
+                <Button Content="⌨  Command Prompt" Style="{StaticResource CardButton}" Click="Cmd_Click"/>
+                <Button Content="&gt;_  PowerShell" Style="{StaticResource CardButton}" Click="PowerShell_Click"/>
+                <Button Content="🌐  Network Settings" Style="{StaticResource CardButton}" Click="Network_Click"/>
+                <Button Content="🖥  Display Settings" Style="{StaticResource CardButton}" Click="Display_Click"/>
+                <Button Content="🔊  Sound Settings" Style="{StaticResource CardButton}" Click="Sound_Click"/>
+                <Button Content="🔐  Windows Update" Style="{StaticResource CardButton}" Click="Update_Click"/>
+            </UniformGrid>
+
+            <TextBlock Text="NETWORK DIAGNOSTICS" Style="{StaticResource SectionTitle}"/>
+            <Border Background="{DynamicResource PanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="18"
+                    Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Quick ping test"
+                               Foreground="{DynamicResource TextBrush}"
+                               FontSize="14"
+                               FontWeight="SemiBold"/>
+                    <TextBlock Text="Test a host without opening Command Prompt."
+                               Foreground="{DynamicResource MutedBrush}"
+                               FontSize="11"
+                               Margin="0,4,0,12"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="HostTextBox"
+                                 Text="1.1.1.1"
+                                 Width="180"
+                                 Height="34"
+                                 Padding="8"
+                                 FontSize="13"
+                                 VerticalContentAlignment="Center"
+                                 Margin="0,0,8,0"/>
+                        <Button Content="Ping"
+                                Style="{StaticResource PrimaryButton}"
+                                Click="Ping_Click"
+                                Width="90"/>
+                    </StackPanel>
+
+                    <TextBlock x:Name="PingResultText"
+                               Text="Ready."
+                               Foreground="{DynamicResource MutedBrush}"
+                               Margin="0,12,0,0"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
