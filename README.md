@@ -1,5 +1,8 @@
 # Harman PC Toolkit
 
+![Harman PC Toolkit](harman-pc-toolkit-banner.jpg)
+
+> A Windows PC Toolkit — Designed by Harman
 > **Latest public release:** v2.1.0
 >
 > **A Windows PC Toolkit — Designed by Harman**
