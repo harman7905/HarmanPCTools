@@ -2,132 +2,217 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Grid Margin="30">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0">
-            <StackPanel>
-                <TextBlock x:Name="GreetingText" Style="{StaticResource PageTitle}"/>
-                <TextBlock Text="Your PC is ready. Here's a quick look at what's happening."
-                           Style="{StaticResource PageSubtitle}"/>
-            </StackPanel>
-
-            <Border HorizontalAlignment="Right" Background="#14291F" CornerRadius="15" Padding="12,7">
-                <TextBlock x:Name="HealthText"
-                           Text="●  SYSTEM HEALTHY"
-                           Foreground="{StaticResource SuccessBrush}"
-                           FontSize="11"
-                           FontWeight="SemiBold"/>
-            </Border>
-        </Grid>
-
-        <Grid Grid.Row="1" Margin="0,28,0,20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Border Grid.Column="0" Style="{StaticResource MetricCard}">
-                <StackPanel>
-                    <TextBlock Text="CPU" Style="{StaticResource MetricTitle}"/>
-                    <TextBlock x:Name="CpuText" Text="--%" Style="{StaticResource MetricValue}"/>
-                    <ProgressBar x:Name="CpuBar" Maximum="100" Style="{StaticResource MetricBar}"/>
-                </StackPanel>
-            </Border>
-
-            <Border Grid.Column="1" Style="{StaticResource MetricCard}">
-                <StackPanel>
-                    <TextBlock Text="MEMORY" Style="{StaticResource MetricTitle}"/>
-                    <TextBlock x:Name="MemoryText" Text="--%" Style="{StaticResource MetricValue}"/>
-                    <ProgressBar x:Name="MemoryBar" Maximum="100" Style="{StaticResource MetricBar}"/>
-                </StackPanel>
-            </Border>
-
-            <Border Grid.Column="2" Style="{StaticResource MetricCard}">
-                <StackPanel>
-                    <TextBlock Text="STORAGE" Style="{StaticResource MetricTitle}"/>
-                    <TextBlock x:Name="StorageText" Text="--%" Style="{StaticResource MetricValue}"/>
-                    <ProgressBar x:Name="StorageBar" Maximum="100" Style="{StaticResource MetricBar}"/>
-                </StackPanel>
-            </Border>
-
-            <Border Grid.Column="3" Style="{StaticResource MetricCard}">
-                <StackPanel>
-                    <TextBlock Text="FREE RAM" Style="{StaticResource MetricTitle}"/>
-                    <TextBlock x:Name="FreeRamText" Text="-- GB" Style="{StaticResource MetricValue}"/>
-                    <TextBlock x:Name="RamDetail" Text="" Foreground="{StaticResource MutedBrush}" FontSize="11"/>
-                </StackPanel>
-            </Border>
-        </Grid>
-
-        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <TextBlock Text="QUICK ACTIONS" Style="{StaticResource SectionTitle}" Margin="0,0,0,10"/>
-                <UniformGrid Columns="4">
-                    <Button Content="🎮  Gaming" Style="{StaticResource CardButton}" Click="Gaming_Click"/>
-                    <Button Content="♻  Clean PC" Style="{StaticResource CardButton}" Click="Cleanup_Click"/>
-                    <Button Content="▣  System Info" Style="{StaticResource CardButton}" Click="System_Click"/>
-                    <Button Content="🌐  Network" Style="{StaticResource CardButton}" Click="Network_Click"/>
-                </UniformGrid>
-
-                <TextBlock Text="PC STATUS" Style="{StaticResource SectionTitle}"/>
+    <Grid Background="Transparent">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="28,24,28,28">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/><ColumnDefinition/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-
-                    <Border Grid.Column="0" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
-                            BorderThickness="1" CornerRadius="12" Padding="18" Margin="0,0,8,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions><ColumnDefinition Width="110"/><ColumnDefinition/></Grid.ColumnDefinitions>
-                            <StackPanel>
-                                <TextBlock Text="MACHINE" Style="{StaticResource InfoLabel}"/>
-                                <TextBlock Text="WINDOWS" Style="{StaticResource InfoLabel}" Margin="0,13,0,0"/>
-                                <TextBlock Text="UPTIME" Style="{StaticResource InfoLabel}" Margin="0,13,0,0"/>
-                                <TextBlock Text="NETWORK" Style="{StaticResource InfoLabel}" Margin="0,13,0,0"/>
-                            </StackPanel>
-                            <StackPanel Grid.Column="1">
-                                <TextBlock x:Name="MachineText" Style="{StaticResource InfoValue}"/>
-                                <TextBlock x:Name="WindowsText" Style="{StaticResource InfoValue}" Margin="0,13,0,0" TextWrapping="Wrap"/>
-                                <TextBlock x:Name="UptimeText" Style="{StaticResource InfoValue}" Margin="0,13,0,0"/>
-                                <TextBlock x:Name="NetworkText" Style="{StaticResource InfoValue}" Margin="0,13,0,0"/>
-                            </StackPanel>
-                        </Grid>
+                    <StackPanel>
+                        <TextBlock Text="Harman PC Toolkit" Foreground="{DynamicResource TextBrush}"
+                                   FontSize="30" FontWeight="Bold"/>
+                        <TextBlock x:Name="GreetingText" Foreground="{DynamicResource AccentBrush}"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,7,0,0"/>
+                        <TextBlock Text="All-in-one Windows PC toolkit — designed by Harman."
+                                   Foreground="{DynamicResource MutedBrush}" FontSize="13" Margin="0,4,0,0"/>
+                    </StackPanel>
+                    <Border Grid.Column="1" VerticalAlignment="Top" Padding="12,8"
+                            Background="{DynamicResource SuccessSoftBrush}"
+                            BorderBrush="{DynamicResource SuccessBrush}"
+                            BorderThickness="1" CornerRadius="14">
+                        <TextBlock x:Name="HealthText" Text="●  SYSTEM HEALTHY"
+                                   Foreground="{DynamicResource SuccessBrush}"
+                                   FontSize="11" FontWeight="SemiBold"/>
                     </Border>
+                </Grid>
 
-                    <Border Grid.Column="1" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
-                            BorderThickness="1" CornerRadius="12" Padding="18" Margin="8,0,0,0">
+                <Grid Margin="0,24,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Style="{StaticResource StatCard}" Margin="0,0,7,0">
                         <StackPanel>
-                            <TextBlock Text="GRAPHICS" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock x:Name="GpuText" Text="Detecting..."
-                                       Foreground="{StaticResource TextBrush}" FontSize="13" TextWrapping="Wrap" Margin="0,6,0,18"/>
-                            <TextBlock Text="SYSTEM DRIVE" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock x:Name="DriveText" Style="{StaticResource InfoValue}" Margin="0,6,0,18"/>
-                            <TextBlock Text="Last refresh is automatic every second."
-                                       Foreground="{StaticResource MutedBrush}" FontSize="11"/>
+                            <TextBlock Text="CPU" Style="{StaticResource MetricTitle}"/>
+                            <TextBlock x:Name="CpuText" Text="--%" Style="{StaticResource MetricValue}"/>
+                            <ProgressBar x:Name="CpuBar" Maximum="100" Style="{StaticResource MetricBar}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource StatCard}" Margin="3,0,4,0">
+                        <StackPanel>
+                            <TextBlock Text="MEMORY" Style="{StaticResource MetricTitle}"/>
+                            <TextBlock x:Name="MemoryText" Text="--%" Style="{StaticResource MetricValue}"/>
+                            <ProgressBar x:Name="MemoryBar" Maximum="100" Style="{StaticResource MetricBar}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="2" Style="{StaticResource StatCard}" Margin="4,0,3,0">
+                        <StackPanel>
+                            <TextBlock Text="STORAGE" Style="{StaticResource MetricTitle}"/>
+                            <TextBlock x:Name="StorageText" Text="--%" Style="{StaticResource MetricValue}"/>
+                            <ProgressBar x:Name="StorageBar" Maximum="100" Style="{StaticResource MetricBar}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="3" Style="{StaticResource StatCard}" Margin="7,0,0,0">
+                        <StackPanel>
+                            <TextBlock Text="FREE RAM" Style="{StaticResource MetricTitle}"/>
+                            <TextBlock x:Name="FreeRamText" Text="-- GB" Style="{StaticResource MetricValue}"/>
+                            <TextBlock x:Name="RamDetail" Text="" Foreground="{DynamicResource MutedBrush}" FontSize="10"/>
                         </StackPanel>
                     </Border>
                 </Grid>
 
-                <TextBlock Text="FAVORITES" Style="{StaticResource SectionTitle}"/>
+                <TextBlock Text="ESSENTIAL TOOLS" Style="{StaticResource SectionTitleModern}" Margin="0,28,0,12"/>
+                <UniformGrid Columns="4">
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource GamingBrush}" Click="Gaming_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource GamingSoftBrush}">
+                                <TextBlock Text="🎮" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Gaming Center" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Game shortcuts, tools and session utilities" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource CleanupBrush}" Click="Cleanup_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource CleanupSoftBrush}">
+                                <TextBlock Text="🧹" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Cleanup Center" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Free up space and clean your PC" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource OrganizerBrush}" Click="DownloadsOrganizer_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource OrganizerSoftBrush}">
+                                <TextBlock Text="📁" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Downloads Organizer" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Organize and manage your downloads" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource SystemBrush}" Click="System_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource SystemSoftBrush}">
+                                <TextBlock Text="▣" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="System Information" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="View detailed PC and Windows information" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource ToolsBrush}" Click="Tools_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource ToolsSoftBrush}">
+                                <TextBlock Text="🔧" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="PC Utilities" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Useful Windows utilities and shortcuts" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource NetworkBrush}" Click="Network_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource NetworkSoftBrush}">
+                                <TextBlock Text="🌐" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Network Diagnostics" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Ping tests, DNS tools and connectivity" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource ObsBrush}" Click="LaunchObs_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource ObsSoftBrush}">
+                                <TextBlock Text="▶" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="OBS Studio" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Open and configure OBS Studio" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource StartupBrush}" Click="Startup_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource StartupSoftBrush}">
+                                <TextBlock Text="⏻" FontSize="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Startup Manager" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Manage programs that start with Windows" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource CustomizeBrush}" Click="Customize_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource CustomizeSoftBrush}">
+                                <TextBlock Text="✦" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Theme Customization" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Personalize your app experience" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource WindowsBrush}" Click="Tools_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource WindowsSoftBrush}">
+                                <TextBlock Text="⚙" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Windows Tools" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Access common Windows controls" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource FeatureCardButton}" BorderBrush="{DynamicResource FunBrush}" Click="Fun_Click">
+                        <StackPanel>
+                            <Border Style="{StaticResource FeatureIcon}" Background="{DynamicResource FunSoftBrush}">
+                                <TextBlock Text="☺" FontSize="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Fun Zone" Style="{StaticResource FeatureTitle}"/>
+                            <TextBlock Text="Small tools and entertainment" Style="{StaticResource FeatureDescription}"/>
+                        </StackPanel>
+                    </Button>
+                </UniformGrid>
+
+                <Grid Margin="0,22,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.1*"/>
+                        <ColumnDefinition Width="0.9*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Style="{StaticResource DashboardPanel}" Margin="0,0,8,0">
+                        <StackPanel>
+                            <TextBlock Text="PC STATUS" Style="{StaticResource SectionTitleModern}" Margin="0,0,0,14"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="110"/><ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="MACHINE" Style="{StaticResource InfoLabel}"/>
+                                    <TextBlock Text="WINDOWS" Style="{StaticResource InfoLabel}" Margin="0,11,0,0"/>
+                                    <TextBlock Text="UPTIME" Style="{StaticResource InfoLabel}" Margin="0,11,0,0"/>
+                                    <TextBlock Text="NETWORK" Style="{StaticResource InfoLabel}" Margin="0,11,0,0"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock x:Name="MachineText" Style="{StaticResource InfoValue}"/>
+                                    <TextBlock x:Name="WindowsText" Style="{StaticResource InfoValue}" Margin="0,11,0,0" TextWrapping="Wrap"/>
+                                    <TextBlock x:Name="UptimeText" Style="{StaticResource InfoValue}" Margin="0,11,0,0"/>
+                                    <TextBlock x:Name="NetworkText" Style="{StaticResource InfoValue}" Margin="0,11,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource DashboardPanel}" Margin="8,0,0,0">
+                        <StackPanel>
+                            <TextBlock Text="GRAPHICS &amp; STORAGE" Style="{StaticResource SectionTitleModern}" Margin="0,0,0,14"/>
+                            <TextBlock Text="GRAPHICS" Style="{StaticResource InfoLabel}"/>
+                            <TextBlock x:Name="GpuText" Text="Detecting..." Style="{StaticResource InfoValue}" TextWrapping="Wrap" Margin="0,5,0,14"/>
+                            <TextBlock Text="SYSTEM DRIVE" Style="{StaticResource InfoLabel}"/>
+                            <TextBlock x:Name="DriveText" Style="{StaticResource InfoValue}" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <TextBlock Text="FAVORITES" Style="{StaticResource SectionTitleModern}"/>
                 <UniformGrid Columns="4">
                     <Button Content="GTA V" Style="{StaticResource CardButton}" Click="LaunchGta_Click"/>
                     <Button Content="OBS Studio" Style="{StaticResource CardButton}" Click="LaunchObs_Click"/>
                     <Button Content="Downloads" Style="{StaticResource CardButton}" Click="Downloads_Click"/>
                     <Button Content="Screenshots" Style="{StaticResource CardButton}" Click="Screenshots_Click"/>
                 </UniformGrid>
-
-                <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
-                        BorderThickness="1" CornerRadius="12" Padding="18" Margin="0,8,0,20">
-                    <StackPanel>
-                        <TextBlock Text="Harman PC Tools" Foreground="{StaticResource TextBrush}" FontSize="18" FontWeight="SemiBold"/>
-                        <TextBlock Text="A personal Windows control center for gaming, organization, system information, cleanup, useful utilities and a little fun."
-                                   Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,7,0,0"/>
-                    </StackPanel>
-                </Border>
             </StackPanel>
         </ScrollViewer>
     </Grid>

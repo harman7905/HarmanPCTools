@@ -2,16 +2,49 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Grid Margin="30">
-        <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
-                BorderThickness="1" CornerRadius="16" Padding="26" VerticalAlignment="Top">
-            <StackPanel>
-                <TextBlock Text="HARMAN PC TOOLS" Foreground="{StaticResource AccentBrush}" FontSize="24" FontWeight="Bold"/>
-                <TextBlock Text="Personal Windows control center" Foreground="{StaticResource TextBrush}" FontSize="15" Margin="0,4,0,20"/>
-                <TextBlock Text="Version 2.0.2" Foreground="{StaticResource MutedBrush}" FontSize="12"/>
-                <TextBlock Text="Built as a modular WPF application so new tools can be added without turning the project into one giant file."
-                           Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,8,0,0"/>
-            </StackPanel>
-        </Border>
-    </Grid>
+    <ScrollViewer Margin="28,24,0,24" Padding="0,0,18,0" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <Border Style="{StaticResource ModernCard}" Background="{DynamicResource WindowSurfaceBrush}" Padding="24" Margin="0,0,0,16">
+                <Grid>
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="HARMAN PC TOOLKIT" Foreground="{DynamicResource AccentBrush}" FontSize="27" FontWeight="Bold"/>
+                        <TextBlock Text="A Windows PC Toolkit — Designed by Harman" Foreground="{DynamicResource TextBrush}" FontSize="15" Margin="0,6,0,0"/>
+                        <TextBlock Text="Version 2.1.0" Foreground="{DynamicResource MutedBrush}" FontSize="11" Margin="0,8,0,0"/>
+                    </StackPanel>
+                    <Border Grid.Column="1" Width="82" Height="82" CornerRadius="24" Background="{DynamicResource AccentSoftBrush}" BorderBrush="{DynamicResource AccentBrush}" BorderThickness="1" VerticalAlignment="Center">
+                        <TextBlock Text="H" Foreground="{DynamicResource AccentBrush}" FontSize="34" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <TextBlock Text="ABOUT THE TOOLKIT" Style="{StaticResource SectionTitleModern}" Margin="0,0,0,10"/>
+            <Border Style="{StaticResource ModernCard}">
+                <StackPanel>
+                    <TextBlock Text="Practical Windows tools, in one calm interface." Style="{StaticResource ModernCardTitle}"/>
+                    <TextBlock Text="Harman PC Toolkit is a modular WPF application for everyday Windows PC management, gaming, cleanup, diagnostics, organization, startup tools and customization." Style="{StaticResource ModernBody}" Margin="0,6,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="DESIGN PRINCIPLES" Style="{StaticResource SectionTitleModern}"/>
+            <UniformGrid Columns="3">
+                <Border Style="{StaticResource ModernCardCompact}" Background="{DynamicResource SuccessSoftBrush}" BorderBrush="{DynamicResource SuccessBrush}">
+                    <StackPanel><TextBlock Text="SAFE" Foreground="{DynamicResource SuccessBrush}" FontWeight="Bold" FontSize="11"/><TextBlock Text="Explicit actions and conservative defaults." Style="{StaticResource ModernBody}" Margin="0,5,0,0"/></StackPanel>
+                </Border>
+                <Border Style="{StaticResource ModernCardCompact}" Background="{DynamicResource GamingSoftBrush}" BorderBrush="{DynamicResource GamingBrush}" Margin="0,0,5,10">
+                    <StackPanel><TextBlock Text="FAST" Foreground="{DynamicResource GamingBrush}" FontWeight="Bold" FontSize="11"/><TextBlock Text="Quick access to the Windows tools you use most." Style="{StaticResource ModernBody}" Margin="0,5,0,0"/></StackPanel>
+                </Border>
+                <Border Style="{StaticResource ModernCardCompact}" Background="{DynamicResource CustomizeSoftBrush}" BorderBrush="{DynamicResource CustomizeBrush}" Margin="5,0,0,10">
+                    <StackPanel><TextBlock Text="PERSONAL" Foreground="{DynamicResource CustomizeBrush}" FontWeight="Bold" FontSize="11"/><TextBlock Text="Themes and settings that stay with your local profile." Style="{StaticResource ModernBody}" Margin="0,5,0,0"/></StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <Border Style="{StaticResource ModernCard}" Margin="0,0,0,18">
+                <StackPanel>
+                    <TextBlock Text="Designed by Harman" Foreground="{DynamicResource AccentBrush}" FontSize="13" FontWeight="SemiBold"/>
+                    <TextBlock Text="Built as a practical personal toolkit with clear controls and safe, explicit actions. The project is publicly maintained on GitHub." Style="{StaticResource ModernBody}" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

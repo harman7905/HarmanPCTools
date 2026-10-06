@@ -7,24 +7,26 @@ namespace HarmanPCTools.Services;
 
 public static class AppSettingsService
 {
-    private static readonly string DirectoryPath =
+    public static readonly string DirectoryPath =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HarmanPCTools");
 
     private static readonly string FilePath =
         Path.Combine(DirectoryPath, "settings.json");
 
-    public static AppSettings Current { get; private set; } = new();
+    public static AppSettings Current { get; private set; } = CreateDefaults();
+
+    private static AppSettings CreateDefaults() => new();
 
     public static void Load()
     {
         try
         {
             if (File.Exists(FilePath))
-                Current = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(FilePath)) ?? new();
+                Current = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(FilePath)) ?? CreateDefaults();
         }
         catch
         {
-            Current = new();
+            Current = CreateDefaults();
         }
     }
 
@@ -46,11 +48,37 @@ public static class AppSettingsService
         Save();
     }
 
+    public static void SetOpenLastPageOnStartup(bool enabled)
+    {
+        Current.OpenLastPageOnStartup = enabled;
+        Save();
+    }
+
     public static void SetGitHubRepositoryUrl(string url)
     {
         if (!string.IsNullOrWhiteSpace(url))
             Current.GitHubRepositoryUrl = url.Trim();
 
+        Save();
+    }
+
+    public static void SetLastOpenedPage(string page)
+    {
+        if (!string.IsNullOrWhiteSpace(page))
+            Current.LastOpenedPage = page.Trim();
+
+        Save();
+    }
+
+    public static void ResetToDefaults()
+    {
+        try
+        {
+            StartupService.SetEnabled(false);
+        }
+        catch { }
+
+        Current = CreateDefaults();
         Save();
     }
 }

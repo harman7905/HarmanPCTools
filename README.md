@@ -1,158 +1,122 @@
-# Harman PC Tools
+# Harman PC Toolkit
 
-<p align="center">
-  <strong>A practical Windows desktop toolkit for gaming, system management, cleanup, diagnostics, organization, startup visibility and customization.</strong>
-</p>
+> **Latest public release:** v2.1.0
+>
+> **A Windows PC Toolkit — Designed by Harman**
 
-<p align="center">
-  <a href="https://github.com/harman7905/HarmanPCTools/releases/latest"><img src="https://img.shields.io/github/v/release/harman7905/HarmanPCTools?display_name=tag&sort=semver" alt="Latest release"></a>
-  <a href="https://github.com/harman7905/HarmanPCTools/actions/workflows/windows-build.yml"><img src="https://github.com/harman7905/HarmanPCTools/actions/workflows/windows-build.yml/badge.svg" alt="Windows Build"></a>
-  <a href="https://github.com/harman7905/HarmanPCTools/releases"><img src="https://img.shields.io/github/downloads/harman7905/HarmanPCTools/total" alt="Downloads"></a>
-  <a href="https://github.com/harman7905/HarmanPCTools/blob/main/LICENSE"><img src="https://img.shields.io/github/license/harman7905/HarmanPCTools" alt="License"></a>
-</p>
+A practical Windows desktop toolkit for gaming, system management, cleanup, organization, diagnostics, startup visibility, customization, and everyday PC utilities.
 
-<p align="center">
-  <a href="https://github.com/harman7905/HarmanPCTools/releases/latest"><strong>Download Latest Release</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/harman7905/HarmanPCTools/issues">Report an Issue</a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/harman7905/HarmanPCTools/discussions">Discussions</a>
-</p>
+## What’s new in v2.1.0
 
-## Overview
-
-Harman PC Tools brings frequently used Windows utilities into one focused WPF application. It is designed to make everyday PC maintenance and gaming tasks easier to find without trying to replace Windows itself.
-
-The project is modular: features are grouped into pages and supported by small services, making future improvements and versioned releases easier to maintain.
+- New Harman PC Toolkit branding and tagline.
+- Modern navy/blue WPF interface with a consistent visual language across the app.
+- Redesigned Home dashboard with live system metrics and Essential Tools cards.
+- Refreshed Gaming, System, Cleanup, Organizer, Tools, Startup, Customize, Fun, Settings, and About pages.
+- Improved Startup Manager readability and spacing.
+- Expanded Settings with startup behavior, local data controls, and official GitHub/update links.
+- Existing application features remain available.
 
 ## Features
 
-| Area | Included |
-| --- | --- |
-| **Home** | CPU, RAM, storage, free RAM, uptime, network and GPU overview |
-| **Gaming** | Game shortcuts, session timer, Steam, Epic Games, OBS and gaming-related Windows shortcuts |
-| **System** | PC information and common system controls |
-| **Cleanup** | User temp cleanup, Recycle Bin, Windows Storage and Disk Cleanup shortcuts |
-| **Organizer** | Downloads organization tools and largest-download scanner |
-| **Tools** | Task Manager, Device Manager, Event Viewer, Services, Disk Management, Control Panel, CMD, PowerShell and settings shortcuts |
-| **Startup** | View programs registered to start with Windows |
-| **Customize** | Five dark themes and appearance controls |
-| **Settings** | Application preferences and optional start-with-Windows setting |
-| **Diagnostics** | Ping test and DNS flush |
-| **Fun** | Small built-in extras |
-
-## Screenshots
-
-### Startup Manager
-
-The Startup Manager provides a clear view of programs registered to start with Windows while keeping the application theme consistent.
-
-![Harman PC Tools Startup Manager](docs/screenshots/startup-manager.png)
+- Live Home dashboard: CPU, RAM, storage, free RAM, uptime, network and GPU name
+- Gaming Center with session timer
+- Persistent game shortcuts
+- Steam / Epic / OBS launchers
+- OBS configuration
+- Game Mode / Display / Graphics / Network / Task Manager shortcuts
+- Cleanup Center
+- User temp cleanup
+- Recycle Bin cleanup
+- Windows Storage and Disk Cleanup shortcuts
+- Downloads Organizer
+- Largest-download scanner
+- PC utility shortcuts
+- Ping diagnostics and DNS flush
+- Startup Manager
+- Five dark themes
+- Subtle hover effects
+- Settings and start-with-Windows option
+- Official GitHub repository and latest-release links
+- Fun Zone
+- Windows single-file publishing
+- Inno Setup installer
+- GitHub Actions CI and tag-based releases
 
 ## Download
 
-### Windows users
+Get the latest Windows installer from the official GitHub release:
 
-The easiest option is the installer from the latest GitHub release:
+https://github.com/harman7905/HarmanPCTools/releases/latest
 
-**[Download HarmanPCTools-Setup.exe](https://github.com/harman7905/HarmanPCTools/releases/latest)**
+The release page provides:
 
-A portable single-file executable is also published with each release.
+- `HarmanPCTools-Setup-2.1.0.exe` — installer
+- `HarmanPCTools.exe` — portable single-file executable
 
-> The release artifacts are self-contained Windows builds, so end users do not need to install the .NET runtime separately.
-
-## Build from source
-
-### Requirements
+## Requirements
 
 - Windows 10 or Windows 11
-- .NET 8 SDK
-- Visual Studio with WPF/.NET desktop development, or a compatible `dotnet` CLI environment
+- Visual Studio Community with WPF support for development
+- .NET 8 SDK for building from source
 
-### Run locally
+## Run locally
 
-```powershell
-git clone https://github.com/harman7905/HarmanPCTools.git
-cd HarmanPCTools
+Open `HarmanPCTools.sln` in Visual Studio.
 
-dotnet restore HarmanPCTools.sln
-dotnet build HarmanPCTools.sln --configuration Debug
-```
+Use:
 
-To launch from Visual Studio, open `HarmanPCTools.sln` and use **Ctrl+F5**.
+`Build -> Rebuild Solution`
 
-### Publish a Windows executable
+Then:
+
+`Ctrl + F5`
+
+## Publish a Windows executable
 
 ```powershell
 .\scripts\publish.ps1
 ```
 
-The published executable is written to `dist/publish`.
+## Build the installer
 
-### Build the installer
-
-Install **Inno Setup 6**, then run:
+Install Inno Setup 6, then:
 
 ```powershell
 .\scripts\build-installer.ps1
 ```
 
+## Public GitHub repository
+
+https://github.com/harman7905/HarmanPCTools
+
 ## Release workflow
 
-Releases are versioned with Git tags. The repository includes GitHub Actions workflows that build a Windows self-contained executable and an Inno Setup installer for version tags.
-
-Example:
+Releases are created from version tags. For a future release:
 
 ```powershell
 git add .
-git commit -m "Improve feature"
+git commit -m "Release Harman PC Toolkit 2.x.x"
 git push origin main
-
-git tag v2.0.3
-git push origin v2.0.3
+git tag v2.x.x
+git push origin v2.x.x
 ```
 
-The `v2.0.3` tag triggers the release workflow.
+GitHub Actions builds the Windows portable executable and Inno Setup installer automatically.
 
-See [`docs/RELEASE.md`](docs/RELEASE.md) for the complete release process.
+## Updating later
 
-## Project structure
+For a future patch or feature release:
 
-```text
-HarmanPCTools/
-├── HarmanPCTools.sln
-├── HarmanPCTools/
-│   ├── Models/
-│   ├── Pages/
-│   ├── Services/
-│   ├── Assets/
-│   ├── App.xaml
-│   ├── MainWindow.xaml
-│   └── HarmanPCTools.csproj
-├── docs/
-├── installer/
-├── scripts/
-└── .github/workflows/
-```
+1. Update the version values in `HarmanPCTools.csproj`.
+2. Update `CHANGELOG.md`.
+3. Test locally.
+4. Commit and push the changes.
+5. Create and push the matching version tag.
 
-More detail is available in:
+## Safety
 
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-- [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md)
-- [`docs/RELEASE.md`](docs/RELEASE.md)
-
-## Safety and privacy
-
-System-changing actions are explicit. Cleanup actions require confirmation, and startup entries are displayed rather than being silently disabled. The application does not self-update or silently execute downloaded code.
-
-## Contributing
-
-Bug reports, feature ideas and pull requests are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a contribution.
+System-changing actions remain explicit. Cleanup asks for confirmation. Startup entries are shown rather than silently disabled. The application does not silently download or execute software updates.
 
 ## License
 
-See [`LICENSE`](LICENSE).
-
-## Current release
-
-**v2.0.2** — Startup Manager readability improvements plus the v2.0.1 compilation fixes.
+See [LICENSE](LICENSE).

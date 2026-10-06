@@ -13,7 +13,7 @@ public partial class FunPage : UserControl
         "Clean desktop. Clean mind. ✨",
         "Your SSD approves of this application. 💾",
         "CPU is calm. You can probably open another tab. 😄",
-        "Harman PC Tools recommends a snack break. ☕"
+        "Harman PC Toolkit recommends a snack break. ☕"
     };
 
     private readonly Random _random = new();

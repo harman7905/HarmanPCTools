@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using HarmanPCTools.Services;
 using HarmanPCTools.Pages;
 
 namespace HarmanPCTools;
@@ -11,8 +12,11 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        _activeButton = HomeNav;
-        PageHost.Content = new HomePage();
+        var startPage = AppSettingsService.Current.OpenLastPageOnStartup
+            ? AppSettingsService.Current.LastOpenedPage
+            : "Home";
+        var button = FindNavButton(startPage) ?? HomeNav;
+        NavigateTo(startPage, button);
     }
 
     private void Nav_Click(object sender, RoutedEventArgs e)
@@ -31,6 +35,8 @@ public partial class MainWindow : Window
     {
         if (button is not null)
             SetActive(button);
+
+        AppSettingsService.SetLastOpenedPage(tag);
 
         PageHost.Content = tag switch
         {

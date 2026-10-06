@@ -33,7 +33,7 @@ public static class WindowsToolsService
         if (!TryOpen(fileName, arguments, label ?? fileName, out string? error) &&
             !string.IsNullOrWhiteSpace(error))
         {
-            MessageBox.Show(error, "Harman PC Tools");
+            MessageBox.Show(error, "Harman PC Toolkit");
         }
     }
 
@@ -42,7 +42,7 @@ public static class WindowsToolsService
         if (!TryOpen(uri, null, label, out string? error) &&
             !string.IsNullOrWhiteSpace(error))
         {
-            MessageBox.Show(error, "Harman PC Tools");
+            MessageBox.Show(error, "Harman PC Toolkit");
         }
     }
 }

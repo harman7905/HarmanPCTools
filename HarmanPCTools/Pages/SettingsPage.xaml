@@ -1,42 +1,79 @@
 <UserControl x:Class="HarmanPCTools.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ScrollViewer Margin="30" VerticalScrollBarVisibility="Auto">
+    <ScrollViewer Margin="28,24,0,24" Padding="0,0,18,0" VerticalScrollBarVisibility="Auto">
         <StackPanel>
-            <TextBlock Text="Settings" Style="{StaticResource PageTitle}"/>
-            <TextBlock Text="Application behavior and public-release configuration."
-                       Style="{StaticResource PageSubtitle}"/>
-
-            <TextBlock Text="STARTUP" Style="{StaticResource SectionTitle}"/>
-            <Border Background="{DynamicResource PanelBrush}"
-                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
-                    CornerRadius="12" Padding="18">
+            <Grid Margin="0,0,0,22">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
                 <StackPanel>
-                    <CheckBox x:Name="StartWithWindowsCheck"
-                              Content="Launch Harman PC Tools with Windows"
-                              Foreground="{DynamicResource TextBrush}"
-                              FontSize="13"
-                              Click="StartWithWindows_Click"/>
-                    <TextBlock Text="This only affects your Windows user startup entry."
-                               Foreground="{DynamicResource MutedBrush}"
-                               FontSize="11" Margin="0,6,0,0"/>
+                    <TextBlock Text="Settings" Style="{StaticResource PageTitle}"/>
+                    <TextBlock Text="Control startup behavior, local app data, and links to the official project." Style="{StaticResource PageSubtitle}"/>
+                </StackPanel>
+                <Border Grid.Column="1" Style="{StaticResource ModernBadge}" VerticalAlignment="Top">
+                    <TextBlock Text="LOCAL SETTINGS" Foreground="{DynamicResource AccentBrush}" FontSize="10" FontWeight="SemiBold"/>
+                </Border>
+            </Grid>
+
+            <TextBlock Text="APPLICATION" Style="{StaticResource SectionTitleModern}" Margin="0,0,0,10"/>
+            <Border Style="{StaticResource ModernCard}">
+                <StackPanel>
+                    <TextBlock Text="Startup behavior" Style="{StaticResource ModernCardTitle}"/>
+                    <TextBlock Text="Choose what the toolkit should remember when Windows starts and when you open the app again." Style="{StaticResource ModernBody}" Margin="0,4,0,14"/>
+                    <CheckBox x:Name="StartWithWindowsCheck" Content="Launch Harman PC Toolkit with Windows" Style="{StaticResource CheckBoxModern}" Click="StartWithWindows_Click"/>
+                    <TextBlock Text="Adds or removes the app from your Windows user startup entries." Style="{StaticResource ModernBody}" Margin="0,0,0,13"/>
+                    <CheckBox x:Name="OpenLastPageCheck" Content="Open the last page when the app starts" Style="{StaticResource CheckBoxModern}" Click="OpenLastPage_Click"/>
+                    <TextBlock Text="Return to the page you were using the last time Harman PC Toolkit closed." Style="{StaticResource ModernBody}"/>
                 </StackPanel>
             </Border>
 
-            <TextBlock Text="GITHUB" Style="{StaticResource SectionTitle}"/>
-            <Border Background="{DynamicResource PanelBrush}"
-                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
-                    CornerRadius="12" Padding="18">
+            <TextBlock Text="DATA &amp; PRIVACY" Style="{StaticResource SectionTitleModern}"/>
+            <Border Style="{StaticResource ModernCard}">
                 <StackPanel>
-                    <TextBlock Text="Public repository URL" Style="{StaticResource InfoLabel}"/>
-                    <TextBox x:Name="RepositoryTextBox" Height="34" Padding="8" Margin="0,6,0,12"/>
+                    <TextBlock Text="Application data folder" Style="{StaticResource ModernCardTitle}"/>
+                    <TextBlock x:Name="DataFolderText" Style="{StaticResource ModernBody}" Margin="0,5,0,12"/>
                     <StackPanel Orientation="Horizontal">
-                        <Button Content="Save URL" Style="{StaticResource PrimaryButton}" Click="SaveRepository_Click" Margin="0,0,8,0"/>
-                        <Button Content="Open Repository" Style="{StaticResource SecondaryButton}" Click="OpenRepository_Click"/>
+                        <Button Content="Open Data Folder" Style="{StaticResource SecondaryButton}" Click="OpenDataFolder_Click" Margin="0,0,8,0"/>
+                        <Button Content="Reset Settings" Style="{StaticResource SecondaryButton}" Click="ResetSettings_Click"/>
                     </StackPanel>
-                    <TextBlock Text="The app never silently downloads or executes updates. GitHub Releases remain the distribution mechanism."
-                               Foreground="{DynamicResource MutedBrush}" TextWrapping="Wrap" FontSize="11" Margin="0,10,0,0"/>
+                    <TextBlock Text="Preferences are stored locally. The toolkit does not silently download or execute software updates." Style="{StaticResource ModernBody}" Margin="0,10,0,0"/>
                 </StackPanel>
+            </Border>
+
+            <TextBlock Text="UPDATES &amp; GITHUB" Style="{StaticResource SectionTitleModern}"/>
+            <Border Style="{StaticResource ModernCard}" Background="{DynamicResource WindowSurfaceBrush}">
+                <StackPanel>
+                    <TextBlock Text="Official project" Style="{StaticResource ModernCardTitle}"/>
+                    <TextBlock Text="GitHub Repository" Style="{StaticResource InfoLabel}" Margin="0,10,0,3"/>
+                    <TextBlock Margin="0,0,0,12">
+                        <Hyperlink x:Name="RepositoryLink" Foreground="{DynamicResource AccentBrush}" TextDecorations="Underline" Click="RepositoryLink_Click">https://github.com/harman7905/HarmanPCTools</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Text="Latest stable release" Style="{StaticResource InfoLabel}" Margin="0,0,0,3"/>
+                    <TextBlock Margin="0,0,0,12">
+                        <Hyperlink x:Name="LatestReleaseLink" Foreground="{DynamicResource AccentBrush}" TextDecorations="Underline" Click="LatestReleaseLink_Click">https://github.com/harman7905/HarmanPCTools/releases/latest</Hyperlink>
+                    </TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Open GitHub" Style="{StaticResource PrimaryButton}" Click="OpenRepository_Click" Margin="0,0,8,0"/>
+                        <Button Content="Latest Release" Style="{StaticResource SecondaryButton}" Click="OpenLatestRelease_Click" Margin="0,0,8,0"/>
+                        <Button Content="Check for Updates" Style="{StaticResource SecondaryButton}" Click="CheckForUpdates_Click"/>
+                    </StackPanel>
+                    <TextBlock Text="The public releases page is the official place to find future stable versions." Style="{StaticResource ModernBody}" Margin="0,10,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="CURRENT CONFIGURATION" Style="{StaticResource SectionTitleModern}"/>
+            <Border Style="{StaticResource ModernCard}" Margin="0,0,0,18">
+                <Grid>
+                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="180"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                    <TextBlock Text="Version" Style="{StaticResource InfoLabel}"/>
+                    <TextBlock Grid.Column="1" Text="2.1.0" Style="{StaticResource ModernValue}"/>
+                    <TextBlock Grid.Row="1" Text="Latest stable" Style="{StaticResource InfoLabel}" Margin="0,12,0,0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="v2.0.2" Style="{StaticResource ModernValue}" Margin="0,12,0,0"/>
+                    <TextBlock Grid.Row="2" Text="Last opened page" Style="{StaticResource InfoLabel}" Margin="0,12,0,0"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" x:Name="LastPageText" Style="{StaticResource ModernValue}" Margin="0,12,0,0"/>
+                    <TextBlock Grid.Row="3" Text="Startup enabled" Style="{StaticResource InfoLabel}" Margin="0,12,0,0"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" x:Name="StartupStatusText" Style="{StaticResource ModernValue}" Margin="0,12,0,0"/>
+                </Grid>
             </Border>
         </StackPanel>
     </ScrollViewer>

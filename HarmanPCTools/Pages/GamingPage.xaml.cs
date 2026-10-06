@@ -87,7 +87,7 @@ public partial class GamingPage : UserControl
     {
         MessageBox.Show(
             message ?? "The application could not be launched.",
-            "Harman PC Tools",
+            "Harman PC Toolkit",
             MessageBoxButton.OK,
             MessageBoxImage.Warning);
     }
@@ -258,12 +258,12 @@ public partial class GamingPage : UserControl
     {
         if (ObsLaunchService.TryConfigure(out string? error))
         {
-            MessageBox.Show("OBS Studio path saved.", "Harman PC Tools");
+            MessageBox.Show("OBS Studio path saved.", "Harman PC Toolkit");
         }
         else if (!string.IsNullOrWhiteSpace(error) &&
                  !error.Contains("cancelled", StringComparison.OrdinalIgnoreCase))
         {
-            MessageBox.Show(error, "Harman PC Tools");
+            MessageBox.Show(error, "Harman PC Toolkit");
         }
     }
 

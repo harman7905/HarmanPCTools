@@ -98,6 +98,7 @@ public static class ThemeService
         SetBrush("SuccessBrush", theme.Success);
         SetBrush("WarningBrush", theme.Warning);
         SetBrush("DangerBrush", theme.Danger);
+        SetBrush("WindowSurfaceBrush", theme.Panel2);
 
         if (save)
             SaveTheme(theme);

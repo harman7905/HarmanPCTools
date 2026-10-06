@@ -1,5 +1,5 @@
 
-name: Harman PC Tools Release
+name: Harman PC Toolkit Release
 
 on:
   push:
@@ -62,4 +62,4 @@ jobs:
             "dist/publish/HarmanPCTools.exe" `
             "dist/installer/HarmanPCTools-Setup-$version.exe" `
             --generate-notes `
-            --title "Harman PC Tools $env:GITHUB_REF_NAME"
+            --title "Harman PC Toolkit $env:GITHUB_REF_NAME"

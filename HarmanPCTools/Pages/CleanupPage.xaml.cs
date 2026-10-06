@@ -27,7 +27,7 @@ public partial class CleanupPage : UserControl
     {
         MessageBoxResult result = MessageBox.Show(
             "Clean the current user's temporary folder?\n\nFiles currently in use will be skipped.",
-            "Harman PC Tools",
+            "Harman PC Toolkit",
             MessageBoxButton.YesNo,
             MessageBoxImage.Question);
 
@@ -39,7 +39,7 @@ public partial class CleanupPage : UserControl
 
         MessageBox.Show(
             $"Cleanup finished.\n\nItems removed: {count}\nSpace freed: {CleanupService.FormatBytes(freedBytes)}",
-            "Harman PC Tools");
+            "Harman PC Toolkit");
     }
 
     private void Storage_Click(object sender, RoutedEventArgs e) =>

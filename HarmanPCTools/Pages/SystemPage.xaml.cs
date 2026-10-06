@@ -32,7 +32,7 @@ public partial class SystemPage : UserControl
     {
         var s = _metrics.GetSnapshot();
         string report =
-            $"Harman PC Tools System Report{Environment.NewLine}" +
+            $"Harman PC Toolkit System Report{Environment.NewLine}" +
             $"Machine: {s.MachineName}{Environment.NewLine}" +
             $"Windows: {s.WindowsVersion}{Environment.NewLine}" +
             $"Processors: {s.ProcessorCount}{Environment.NewLine}" +
@@ -46,7 +46,7 @@ public partial class SystemPage : UserControl
             $"Network: {(s.NetworkAvailable ? "Connected" : "Offline")}";
 
         Clipboard.SetText(report);
-        MessageBox.Show("System report copied to the clipboard.", "Harman PC Tools");
+        MessageBox.Show("System report copied to the clipboard.", "Harman PC Toolkit");
     }
 
     private void Device_Click(object sender, RoutedEventArgs e) => WindowsToolsService.Open("devmgmt.msc");

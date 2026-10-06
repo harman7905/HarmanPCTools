@@ -30,7 +30,7 @@ public partial class OrganizerPage : UserControl
     {
         MessageBoxResult result = MessageBox.Show(
             "Organize the files currently in your Downloads folder?\n\nExisting files will be preserved by renaming the moved copy.",
-            "Harman PC Tools",
+            "Harman PC Toolkit",
             MessageBoxButton.YesNo,
             MessageBoxImage.Question);
 
@@ -41,6 +41,6 @@ public partial class OrganizerPage : UserControl
 
         MessageBox.Show(
             $"Organizer finished.\n\nFiles moved: {moved}",
-            "Harman PC Tools");
+            "Harman PC Toolkit");
     }
 }

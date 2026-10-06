@@ -86,11 +86,17 @@ public partial class HomePage : UserControl
     private void System_Click(object sender, RoutedEventArgs e) => Navigate("System");
     private void Network_Click(object sender, RoutedEventArgs e) => WindowsToolsService.Open("ms-settings:network");
 
+    private void DownloadsOrganizer_Click(object sender, RoutedEventArgs e) => Navigate("Organizer");
+    private void Tools_Click(object sender, RoutedEventArgs e) => Navigate("Tools");
+    private void Startup_Click(object sender, RoutedEventArgs e) => Navigate("Startup");
+    private void Customize_Click(object sender, RoutedEventArgs e) => Navigate("Customize");
+    private void Fun_Click(object sender, RoutedEventArgs e) => Navigate("Fun");
+
     private void LaunchGta_Click(object sender, RoutedEventArgs e) => TryLaunch("GTA V", "steam://rungameid/271590");
     private void LaunchObs_Click(object sender, RoutedEventArgs e)
     {
         if (!ObsLaunchService.TryLaunchWithPrompt(out string? error))
-            MessageBox.Show(error ?? "OBS Studio could not be launched.", "Harman PC Tools");
+            MessageBox.Show(error ?? "OBS Studio could not be launched.", "Harman PC Toolkit");
     }
 
     private void Downloads_Click(object sender, RoutedEventArgs e)
@@ -117,7 +123,7 @@ public partial class HomePage : UserControl
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Could not launch {name}.\n\n{ex.Message}", "Harman PC Tools");
+            MessageBox.Show($"Could not launch {name}.\n\n{ex.Message}", "Harman PC Toolkit");
         }
     }
 
@@ -129,7 +135,7 @@ public partial class HomePage : UserControl
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Could not open {label}.\n\n{ex.Message}", "Harman PC Tools");
+            MessageBox.Show($"Could not open {label}.\n\n{ex.Message}", "Harman PC Toolkit");
         }
     }
 }
